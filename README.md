@@ -1,6 +1,6 @@
 # aiary
 
-A new Flutter project.
+인공지능 기반 다이어리
 
 ## Getting Started
 
