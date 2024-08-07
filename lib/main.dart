@@ -1,32 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:aiary/home.dart';
+import 'package:aiary/chat.dart';
+
+const lightGreen = Color(0xffC9DABF);
+const mainGreen = Color(0xff9CA986);
+const darkGreen = Color(0xff808D7C);
+const darkestGreen = Color(0xff5F6F65);
 
 void main() {
-  runApp(App());
+  runApp(MyApp());
 }
 
-class App extends StatelessWidget {
+class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-          backgroundColor: Color(0xffC9DABF),
-          body: Column(
-            children: [
-              SizedBox(
-                height: 20,
-              ),
-              // Image.asset('assets/images/logo.png'),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text('logo',
-                      style: TextStyle(
-                        color: Color(0xffFFFFFF),
-                      )),
-                ],
-              )
-            ],
-          )),
-    );
+    return MaterialApp(initialRoute: '/', routes: {
+      '/': (context) => home(),
+      '/chat': (context) => chat(),
+    });
   }
 }
