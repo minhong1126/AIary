@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:table_calendar/table_calendar.dart';
 
 const lightGreen = Color(0xffC9DABF);
 const mainGreen = Color(0xff9CA986);
@@ -22,9 +23,37 @@ class home extends StatelessWidget {
                   height: 30,
                   width: 30,
                 ),
-              )
+              ),
+              calandar(),
             ],
           )),
     );
+  }
+}
+
+class calandar extends StatefulWidget {
+  State<calandar> createState() => calandarState();
+}
+
+class calandarState extends State<calandar> {
+  var today = DateTime.now();
+
+  @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+        child: TableCalendar(
+      firstDay: DateTime(2010),
+      lastDay: DateTime(2200),
+      focusedDay: today,
+      headerStyle: HeaderStyle(
+        formatButtonVisible: false,
+        titleCentered: true,
+      ),
+    ));
   }
 }
