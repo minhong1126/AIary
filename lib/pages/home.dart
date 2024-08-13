@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:aiary/theme/color.dart';
 import 'package:table_calendar/table_calendar.dart';
 
+final DraggableScrollableController sheetController =
+    DraggableScrollableController();
+
 class Home extends StatelessWidget {
   const Home({super.key});
 
@@ -25,6 +28,10 @@ class Home extends StatelessWidget {
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 40),
               child: const CalendarWidget(),
+            ),
+            const Expanded(
+              child:
+                  ScrollBottomWidget(), // DraggableScrollableSheet을 감싸는 Expanded 추가
             ),
           ],
         ),
@@ -63,7 +70,7 @@ class CalendarWidgetState extends State<CalendarWidget> {
         rightChevronIcon: Icon(Icons.chevron_right, color: Colors.white),
       ),
       calendarStyle: CalendarStyle(
-        isTodayHighlighted: selectedDay == DateTime.now() ? true : false,
+        isTodayHighlighted: selectedDay == DateTime.now(),
         selectedDecoration: const BoxDecoration(
           color: color.mainGreen,
           shape: BoxShape.circle,
@@ -81,5 +88,41 @@ class CalendarWidgetState extends State<CalendarWidget> {
         });
       },
     );
+  }
+}
+
+class ScrollBottomWidget extends StatefulWidget {
+  const ScrollBottomWidget({super.key});
+
+  @override
+  State<StatefulWidget> createState() => ScrollBottomWidgetState();
+}
+
+class ScrollBottomWidgetState extends State<ScrollBottomWidget> {
+  @override
+  Widget build(BuildContext context) {
+    return DraggableScrollableSheet(
+        initialChildSize: 0.9,
+        minChildSize: 0.1,
+        maxChildSize: 1.0,
+        expand: false,
+        builder: (BuildContext context, ScrollController scrollController) {
+          return Container(
+            decoration: const BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(30),
+                topRight: Radius.circular(30),
+              ),
+            ),
+            child: Stack(
+              children: [
+                Container(
+                    // child: scrollController,
+                    )
+              ],
+            ),
+          );
+        });
   }
 }
