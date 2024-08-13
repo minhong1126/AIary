@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:aiary/theme/color.dart';
 import 'package:table_calendar/table_calendar.dart';
-
-const lightGreen = Color(0xffC9DABF);
-const mainGreen = Color(0xff9CA986);
-const darkGreen = Color(0xff808D7C);
-const darkestGreen = Color(0xff5F6F65);
 
 class Home extends StatelessWidget {
   const Home({super.key});
@@ -13,11 +9,11 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        backgroundColor: lightGreen,
+        backgroundColor: color.lightGreen,
         body: Column(
           children: [
             AppBar(
-              backgroundColor: lightGreen,
+              backgroundColor: color.lightGreen,
               centerTitle: true,
               title: Image.asset(
                 'assets/images/logo.png',
@@ -26,7 +22,10 @@ class Home extends StatelessWidget {
                 width: 50,
               ),
             ),
-            const CalendarWidget(),
+            Container(
+              padding: const EdgeInsets.symmetric(horizontal: 40),
+              child: const CalendarWidget(),
+            ),
           ],
         ),
       ),
@@ -66,7 +65,7 @@ class CalendarWidgetState extends State<CalendarWidget> {
       calendarStyle: CalendarStyle(
         isTodayHighlighted: selectedDay == DateTime.now() ? true : false,
         selectedDecoration: const BoxDecoration(
-          color: mainGreen,
+          color: color.mainGreen,
           shape: BoxShape.circle,
         ),
         defaultTextStyle: const TextStyle(color: Colors.white),

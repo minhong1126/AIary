@@ -1,8 +1,8 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:aiary/home.dart';
-import 'package:aiary/chat.dart';
+import 'package:aiary/pages/home.dart';
+import 'package:aiary/pages/chat.dart';
 
 void main() {
   runApp(const MyApp());
@@ -25,10 +25,10 @@ class LogoScreen extends StatefulWidget {
   const LogoScreen({super.key});
 
   @override
-  logoScreenState createState() => logoScreenState();
+  LogoScreenState createState() => LogoScreenState();
 }
 
-class logoScreenState extends State<LogoScreen> {
+class LogoScreenState extends State<LogoScreen> {
   @override
   void initState() {
     super.initState();
