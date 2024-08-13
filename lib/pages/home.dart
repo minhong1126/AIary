@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:aiary/theme/color.dart';
 import 'package:table_calendar/table_calendar.dart';
+import 'package:aiary/pages/chat.dart';
 
 final DraggableScrollableController sheetController =
     DraggableScrollableController();
@@ -105,7 +106,6 @@ class ScrollBottomWidgetState extends State<ScrollBottomWidget> {
         initialChildSize: 0.9,
         minChildSize: 0.1,
         maxChildSize: 1.0,
-        expand: false,
         builder: (BuildContext context, ScrollController scrollController) {
           return Container(
             decoration: const BoxDecoration(
@@ -115,11 +115,19 @@ class ScrollBottomWidgetState extends State<ScrollBottomWidget> {
                 topRight: Radius.circular(30),
               ),
             ),
-            child: Stack(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Container(
-                    // child: scrollController,
-                    )
+                ElevatedButton(
+                    onPressed: () {
+                      setState(() {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const Chat()));
+                      });
+                    },
+                    child: Text('채팅하기'))
               ],
             ),
           );

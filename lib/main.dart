@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(initialRoute: '/', title: 'AIary', routes: {
       '/': (context) => const LogoScreen(),
       '/home': (context) => const Home(),
-      '/Chat': (context) => const Chat(),
+      '/chat': (context) => const Chat(),
     });
   }
 }
