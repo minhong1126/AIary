@@ -1,8 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:aiary/pages/home.dart';
-import 'package:aiary/pages/chat.dart';
+import 'package:aiary/pages/home/home.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,11 +12,11 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(initialRoute: '/', title: 'AIary', routes: {
-      '/': (context) => const LogoScreen(),
-      '/home': (context) => const Home(),
-      '/chat': (context) => const Chat(),
-    });
+    return const MaterialApp(
+      initialRoute: '/',
+      title: 'AIary',
+      home: LogoScreen(),
+    );
   }
 }
 
