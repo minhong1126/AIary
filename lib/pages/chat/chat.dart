@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:aiary/theme/color.dart';
-import 'package:flutter/widgets.dart';
+import './chatlist.dart';
 
 class Chat extends StatelessWidget {
   const Chat({super.key});
@@ -9,12 +9,14 @@ class Chat extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
+        resizeToAvoidBottomInset: true,
         backgroundColor: color.mainGreen,
         body: Column(
           children: [
             appbar(),
-            // 채팅 화면,
-            // 채팅 입력창
+            // Expanded(
+            // child: ),
+            //  _BottomInputField(),
           ],
         ),
       ),

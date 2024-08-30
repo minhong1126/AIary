@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:aiary/theme/color.dart';
 import 'calendar.dart';
-import 'bottomSheet.dart';
+import 'bottom_sheet.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});
@@ -13,7 +13,7 @@ class Home extends StatelessWidget {
         backgroundColor: color.lightGreen,
         body: Column(
           children: [
-            appbar(),
+            Appbar(),
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 40),
               child: const CalendarWidget(),
@@ -28,7 +28,7 @@ class Home extends StatelessWidget {
   }
 }
 
-class appbar extends StatelessWidget {
+class Appbar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
