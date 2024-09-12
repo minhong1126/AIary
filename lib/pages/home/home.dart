@@ -8,32 +8,31 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        backgroundColor: color.lightGreen,
-        body: Column(
-          children: [
-            Appbar(),
-            Container(
-              padding: const EdgeInsets.symmetric(horizontal: 40),
-              child: const CalendarWidget(),
-            ),
-            const Expanded(
-              child: ScrollBottomWidget(),
-            ),
-          ],
-        ),
+    return Scaffold(
+      backgroundColor: color.lightGreen,
+      appBar: _Appbar(),
+      body: Column(
+        children: [
+          Container(
+            padding: const EdgeInsets.symmetric(horizontal: 40),
+            child: const CalendarWidget(),
+          ),
+          const Expanded(
+            child: ScrollBottomWidget(),
+          ),
+        ],
       ),
     );
   }
 }
 
-class Appbar extends StatelessWidget {
+class _Appbar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
       backgroundColor: color.lightGreen,
       centerTitle: true,
+      leading: Container(),
       title: Image.asset(
         'assets/images/logo.png',
         fit: BoxFit.contain,
@@ -42,4 +41,7 @@ class Appbar extends StatelessWidget {
       ),
     );
   }
+
+  @override
+  Size get preferredSize => const Size.fromHeight(kToolbarHeight);
 }
