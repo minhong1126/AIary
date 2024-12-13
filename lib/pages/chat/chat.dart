@@ -10,12 +10,8 @@ class Chat extends StatelessWidget {
       resizeToAvoidBottomInset: true,
       backgroundColor: color.mainGreen,
       appBar: _Appbar(),
-      body: Column(
-        children: [
-          Expanded(child: Container()),
-          const ChatField(),
-        ],
-      ),
+      body: Expanded(child: Container()),
+      bottomNavigationBar: const ChatField(),
     );
   }
 }
@@ -44,27 +40,16 @@ class ChatField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: color.white,
-      padding: const EdgeInsets.all(0.8),
-      child: Row(
-        children: [
-          const Expanded(
-            child: TextField(
-              maxLines: null,
-              keyboardType: TextInputType.multiline,
-              decoration: InputDecoration(border: InputBorder.none),
-            ),
-          ),
-          IconButton(
-            icon: const Icon(Icons.send, color: color.darkGreen),
-            onPressed: () {
-              ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(content: Text('Message sent!')),
-              );
-            },
-          ),
-        ],
+    return TextField(
+      decoration: InputDecoration(
+        fillColor: Colors.white,
+        filled: true,
+        suffixIcon: IconButton(
+          icon: const Icon(Icons.send, color: color.darkGreen),
+          onPressed: () {
+            print('pressed');
+          },
+        ),
       ),
     );
   }
