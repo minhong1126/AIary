@@ -8,14 +8,10 @@ class Chat extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: true,
-      backgroundColor: color.mainGreen,
+      backgroundColor: mainGreen,
       appBar: _Appbar(),
-      body: Column(
-        children: [
-          Expanded(child: Container()),
-          const ChatField(),
-        ],
-      ),
+      body: Expanded(child: Container()),
+      bottomNavigationBar: const ChatField(),
     );
   }
 }
@@ -24,13 +20,23 @@ class _Appbar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      backgroundColor: color.darkGreen,
+      backgroundColor: darkGreen,
       leading: IconButton(
         icon: const Icon(Icons.arrow_back),
-        color: color.white,
+        color: white,
         onPressed: () {
           Navigator.pop(context);
         },
+      ),
+      centerTitle: true,
+      title: ImageFiltered(
+        imageFilter: const ColorFilter.mode(lightGreen, BlendMode.srcIn),
+        child: Image.asset(
+          'assets/images/logo.png',
+          fit: BoxFit.contain,
+          height: 50,
+          width: 50,
+        ),
       ),
     );
   }
@@ -44,27 +50,16 @@ class ChatField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: color.white,
-      padding: const EdgeInsets.all(0.8),
-      child: Row(
-        children: [
-          const Expanded(
-            child: TextField(
-              maxLines: null,
-              keyboardType: TextInputType.multiline,
-              decoration: InputDecoration(border: InputBorder.none),
-            ),
-          ),
-          IconButton(
-            icon: const Icon(Icons.send, color: color.darkGreen),
-            onPressed: () {
-              ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(content: Text('Message sent!')),
-              );
-            },
-          ),
-        ],
+    return TextField(
+      decoration: InputDecoration(
+        fillColor: Colors.white,
+        filled: true,
+        suffixIcon: IconButton(
+          icon: const Icon(Icons.send, color: darkGreen),
+          onPressed: () {
+            print('pressed');
+          },
+        ),
       ),
     );
   }
