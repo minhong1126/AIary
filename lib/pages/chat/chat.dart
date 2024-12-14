@@ -8,10 +8,16 @@ class Chat extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: true,
-      backgroundColor: color.mainGreen,
+      backgroundColor: mainGreen,
       appBar: _Appbar(),
-      body: Expanded(child: Container()),
-      bottomNavigationBar: const ChatField(),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Expanded(child: Container()), // Chat content goes here
+            const ChatField(), // Chat input field at the bottom
+          ],
+        ),
+      ),
     );
   }
 }
@@ -20,10 +26,10 @@ class _Appbar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      backgroundColor: color.darkGreen,
+      backgroundColor: darkGreen,
       leading: IconButton(
         icon: const Icon(Icons.arrow_back),
-        color: color.white,
+        color: white,
         onPressed: () {
           Navigator.pop(context);
         },
@@ -40,14 +46,19 @@ class ChatField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    TextEditingController _controller = TextEditingController();
+
     return TextField(
+      controller: _controller,
       decoration: InputDecoration(
         fillColor: Colors.white,
         filled: true,
         suffixIcon: IconButton(
-          icon: const Icon(Icons.send, color: color.darkGreen),
+          icon: const Icon(Icons.send, color: darkGreen),
           onPressed: () {
-            print('pressed');
+            print('Message sent');
+            _controller
+                .clear(); // Clear the input field after sending the message
           },
         ),
       ),

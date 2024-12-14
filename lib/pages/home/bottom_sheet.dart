@@ -19,7 +19,7 @@ class ScrollBottomWidgetState extends State<ScrollBottomWidget> {
         builder: (BuildContext context, ScrollController scrollController) {
           return Container(
               decoration: const BoxDecoration(
-                color: color.white,
+                color: white,
                 borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(30),
                   topRight: Radius.circular(30),
@@ -37,8 +37,8 @@ class ScrollBottomWidgetState extends State<ScrollBottomWidget> {
                         });
                       },
                       style: ElevatedButton.styleFrom(
-                        foregroundColor: color.white,
-                        backgroundColor: color.lightGreen,
+                        foregroundColor: white,
+                        backgroundColor: lightGreen,
                       ),
                       child: const Text('채팅 시작하기')),
                 ],

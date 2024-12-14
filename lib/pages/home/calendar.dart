@@ -27,19 +27,19 @@ class CalendarWidgetState extends State<CalendarWidget> {
       headerStyle: const HeaderStyle(
         formatButtonVisible: false,
         titleCentered: true,
-        titleTextStyle: TextStyle(color: color.white),
-        leftChevronIcon: Icon(Icons.chevron_left, color: color.white),
-        rightChevronIcon: Icon(Icons.chevron_right, color: color.white),
+        titleTextStyle: TextStyle(color: white),
+        leftChevronIcon: Icon(Icons.chevron_left, color: white),
+        rightChevronIcon: Icon(Icons.chevron_right, color: white),
       ),
       calendarStyle: CalendarStyle(
         isTodayHighlighted: selectedDay == DateTime.now(),
         selectedDecoration: const BoxDecoration(
-          color: color.mainGreen,
+          color: mainGreen,
           shape: BoxShape.circle,
         ),
-        defaultTextStyle: const TextStyle(color: color.white),
-        holidayTextStyle: const TextStyle(color: color.white),
-        weekendTextStyle: const TextStyle(color: color.white),
+        defaultTextStyle: const TextStyle(color: white),
+        holidayTextStyle: const TextStyle(color: white),
+        weekendTextStyle: const TextStyle(color: white),
       ),
       selectedDayPredicate: (day) {
         return isSameDay(selectedDay, day);

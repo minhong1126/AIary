@@ -9,7 +9,7 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: color.lightGreen,
+      backgroundColor: lightGreen,
       appBar: _Appbar(),
       body: Column(
         children: [
@@ -30,7 +30,7 @@ class _Appbar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      backgroundColor: color.lightGreen,
+      backgroundColor: lightGreen,
       centerTitle: true,
       leading: Container(),
       title: Image.asset(
