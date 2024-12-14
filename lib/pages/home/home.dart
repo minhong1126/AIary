@@ -32,7 +32,7 @@ class _Appbar extends StatelessWidget implements PreferredSizeWidget {
     return AppBar(
       backgroundColor: lightGreen,
       centerTitle: true,
-      leading: Container(),
+      automaticallyImplyLeading: false,
       title: Image.asset(
         'assets/images/logo.png',
         fit: BoxFit.contain,
